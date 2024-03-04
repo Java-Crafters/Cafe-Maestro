@@ -29,10 +29,6 @@ public interface productRest {
 
     @PostMapping(path = "/updateProductStatus")
     public ResponseEntity<String> updateProductStatus(@RequestBody(required = true) Map<String, String> requestMap);
-
-    /*
-    @PostMapping(path = "/updateProductStatus")
-    public ResponseEntity<String> updateProductStatus(@RequestBody Map<String, String> requestMap);
-    */
+    
 }
 

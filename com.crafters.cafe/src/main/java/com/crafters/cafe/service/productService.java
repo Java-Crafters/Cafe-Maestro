@@ -1,7 +1,7 @@
 package com.crafters.cafe.service;
 
-import com.crafters.cafe.POJO.Category;
-import com.crafters.cafe.POJO.Product;
+// import com.crafters.cafe.POJO.Category;
+// import com.crafters.cafe.POJO.Product;
 import com.crafters.cafe.wrapper.ProductWrapper;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.ResponseEntity;
