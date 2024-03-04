@@ -31,4 +31,4 @@ Developed a comprehensive cafeteria management system aimed at streamlining oper
 
 ### Used Technologies
 
-- Java [Spring Boot - Rest Api] , Angular , MYSQL Database
+- Java [Spring Boot - Rest Api] ,MYSQL Database
