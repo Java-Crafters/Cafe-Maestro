@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
-        log.info("Inside signup {}", requestMap);
+        System.out.printf("Inside signup {}", requestMap);
         try {
             if (validaSignUpMap(requestMap)) {
                 //System.out.println("inside validaSignUpMap");
@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<String> login(Map<String, String> requestMap) {
-        log.info("Inside login {}", requestMap);
+    	System.out.printf("Inside login {}", requestMap);
         try {
             Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(requestMap.get("email"), requestMap.get("password")));
             if (auth.isAuthenticated()) {
@@ -85,7 +85,7 @@ public class UserServiceImpl implements UserService {
                 }
             }
         } catch (Exception ex) {
-            log.error("{}", ex);
+        	System.out.printf("{}", ex);
         }
         return new ResponseEntity<String>("{\"message\":\"" + "Bad Credentials." + "\"}",
                 HttpStatus.BAD_REQUEST);
@@ -133,6 +133,7 @@ public class UserServiceImpl implements UserService {
                 if (!optional.isEmpty()) {
 
                     userDao.updateStatus(requestMap.get("status"), Integer.parseInt(requestMap.get("id")));
+                    System.out.println("into the update module for-" + userDao.toString());
                     sendMailToAllAdmin(requestMap.get("status"), optional.get().getEmail(), userDao.getAllAdmin());
                     return CafeUtils.getResponeEntity("User Status is updated Successfully", HttpStatus.OK);
 

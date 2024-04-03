@@ -52,7 +52,7 @@ public class BillServiceImpl implements BillService {
 
     @Override
     public ResponseEntity<String> generateReport(Map<String, Object> requestMap) {
-        log.info("Insert generateReport");
+    	System.out.printf("Insert generateReport");
         try {
             String filename;
             if (validateResquestMap(requestMap)) {
@@ -121,7 +121,7 @@ public class BillServiceImpl implements BillService {
 
     @Override
     public ResponseEntity<byte[]> getPdf(Map<String, Object> requestMap) {
-        log.info("Inside getPdf : requestMap {}", requestMap);
+    	System.out.printf("Inside getPdf : requestMap {}", requestMap);
         try {
             byte[] byteArray = new byte[0];
             if (!requestMap.containsKey("uuid") && validateResquestMap(requestMap)) {
@@ -193,7 +193,7 @@ public class BillServiceImpl implements BillService {
     }
 
     private void setRectaangleInPdf(Document document) throws DocumentException {
-        log.info("Inside setRectaangleInPdf.");
+    	System.out.printf("Inside setRectaangleInPdf.");
         Rectangle rectangle = new Rectangle(577, 825, 18, 15);
         rectangle.enableBorderSide(1);
         rectangle.enableBorderSide(2);
@@ -205,7 +205,7 @@ public class BillServiceImpl implements BillService {
     }
 
     private Font getFont(String type) {
-        log.info("Inside getFont");
+    	System.out.printf("Inside getFont");
         switch (type) {
             case "Header":
                 Font headerFont = FontFactory.getFont(FontFactory.HELVETICA_BOLDOBLIQUE, 18, BaseColor.BLACK);
@@ -221,7 +221,7 @@ public class BillServiceImpl implements BillService {
     }
 
     private void addTableHeader(PdfPTable table) {
-        log.info("Inside addTableHeader");
+    	System.out.printf("Inside addTableHeader");
         Stream.of("Name", "Category", "Quantity", "Price", "Sub Total")
                 .forEach(columnTitle -> {
                     PdfPCell header = new PdfPCell();
@@ -236,7 +236,7 @@ public class BillServiceImpl implements BillService {
     }
 
     private void addRows(PdfPTable table, Map<String, Object> data) {
-        log.info("Inside addRows");
+    	System.out.printf("Inside addRows");
         table.addCell((String) data.get("name"));
         table.addCell((String) data.get("category"));
         table.addCell((String) data.get("quantity"));

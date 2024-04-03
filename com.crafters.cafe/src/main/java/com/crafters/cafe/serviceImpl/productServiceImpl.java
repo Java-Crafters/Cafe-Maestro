@@ -47,7 +47,7 @@ public class productServiceImpl implements productService {
 
     @Override
     public ResponseEntity<String> addNewProduct(Map<String, String> requestMap) {
-        log.info("Inside addNewProduct{}", requestMap);
+    	System.out.printf("Inside addNewProduct{}", requestMap);
         try {
             if (jwtFilter.isAdmin()) {
                 if (validateProductMap(requestMap, false)) {

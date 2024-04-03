@@ -42,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
     EmailUtil emailUtil;
     @Override
     public ResponseEntity<String> addNewCategory(Map<String, String> requestMap) {
-        log.info("Inside addNewCategory{}", requestMap);
+    	System.out.printf("Inside addNewCategory{}", requestMap);
         try {
             if(jwtFilter.isAdmin()){
                 if(validateCategoryMap(requestMap, false)){
